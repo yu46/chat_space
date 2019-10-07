@@ -1,0 +1,153 @@
+*{
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.header{
+  background-color:$light-blue;
+  color: #ffffff;
+}
+.contents{
+  display: flex;
+}
+.side-bar{
+  @include side-bar-font; 
+  width: 300px;
+  height: 100vh;
+  &__top{
+    background-color: #253141;
+    padding: 0 20px 0 20px;
+    height: 100px;
+    line-height: 100px;
+    &__box{
+      display: flex;
+      p{
+        font-size: 16px; 
+      }
+      &__tool{
+        margin-left: auto;
+      }
+    }  
+  }
+  &__groups{
+    background-color: #2f3e51;
+    padding: 20px 20px 0 20px;
+    height: calc(100vh - 100px);
+  }
+  &__group{
+    padding-bottom: 40px;
+    &__title{
+      padding-bottom: 5px;
+      font-size: 15px;
+    }
+    &__message{
+      font-size: 11px;
+    }
+  }
+}
+
+.chat{
+  width: calc(100vw - 300px);
+  height: 100vh;
+  &__heading{
+    height: 100px;
+    padding: 0 40px 0;
+    display: flex;
+    &__left{
+      &__title{
+        padding: 35px 0 15px;
+        font-size: 20px;
+        color: #333333;
+      }
+      &__member{
+        font-size: 12px;
+        color: $light-gray;
+      }
+    }
+    &__edit-btn{
+      margin-left: auto;
+      a{
+        display: inline-block;
+        color: $light-blue;
+        height: 40px;
+        line-height: 40px;
+        margin-top: 28px;
+        padding: 0 20px 0;
+        border: 1px solid $light-blue;
+      }
+    }
+  }
+  &__messages{
+    background-color: #fafafa;
+    border: 1px solid #eeeeee;
+    padding: 0 40px 0;
+    height: calc(100vh - 100px - 80px);
+  }
+}
+
+.message{
+    padding: 46px 0 40px;
+    
+    &__top{
+      display: flex;
+      &__user-name{
+      font-size: 16px;
+      font-weight: bold;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      color: $gray;
+    }
+      &__date{
+        font-size: 12px;
+        color: $light-gray;
+      }
+    }  
+    &__text{
+    font-size: 14px;
+    color: $gray;
+    }
+  }
+
+.form{
+  background-color: $light-gray;
+  padding: 15px 40px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  form{
+    display: flex;
+  }
+    &__input-box{
+      width: 100%;
+      display: flex;
+      position: relative;
+      &__text{
+        height: 50px;
+        width: 100%;
+        border-style: none;
+        color: $gray;
+        font-size: 16px;
+        padding-left: 10px;
+      }
+      &__image{
+          line-height: 50px;
+          position: absolute;
+          right: 0;
+          padding-right: 10px;
+          cursor: pointer;
+        &--hidden{
+          display: none;
+          font-size: 100px;
+        }
+      }
+    }
+    &__btn{
+      background-color: $light-blue;
+      height: 50px;
+      width: 80px;
+      color: #fff;
+      border-style: none;
+      margin-left: 15px;
+    }
+}
