@@ -1,14 +1,13 @@
-.header
-  %P.header__message
-    　グループを作成しました。
 .contents
   .side-bar    
-    .side-bar__top
-      .side-bar__top__box
-        %P SEO
-        .side-bar__top__box__tool
-          %i.fa.fa-edit
-          %i.fa.fa-cog
+    .side-bar__header
+      .side-bar__header__box
+        %h3 SEO
+        .side-bar__header__box__tool
+          =link_to do
+            %i.fa.fa-edit
+          =link_to edit_user_path(current_user) do
+            %i.fa.fa-cog
     .side-bar__groups
       =render partial: "group"
   .chat

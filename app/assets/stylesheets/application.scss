@@ -1,5 +1,9 @@
 
 @import "reset";
+@import "config/colors";
 @import "variable";
 @import "index";
 @import "font-awesome";
+@import "user";
+//以下のファイル読み込めない。
+@import "modules/flash";
