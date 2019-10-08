@@ -1,10 +1,6 @@
-.side-bar__group
-  %P.side-bar__group__title
-    sample
-  %P.side-bar__group__message
-    hello!
-.side-bar__group
-  %P.side-bar__group__title
-    sample
-  %P.side-bar__group__message
-    hello!
+- current_user.groups.each do |group|
+  .side-bar__group
+    %P.side-bar__group__title
+      = group.name
+    %P.side-bar__group__message
+      = group.messages.(at_last)
