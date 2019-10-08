@@ -13,7 +13,7 @@
   height: 100vh;
   &__header{
     background-color: #253141;
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
     height: 100px;
     line-height: 100px;
     &__box{
@@ -23,6 +23,10 @@
       }
       &__tool{
         margin-left: auto;
+        i{
+          color: $white;
+        }
+
       }
     }  
   }
@@ -36,9 +40,11 @@
     &__title{
       padding-bottom: 5px;
       font-size: 15px;
+      color: $white;
     }
     &__message{
       font-size: 11px;
+      color: $white;
     }
   }
 }
@@ -106,7 +112,7 @@
   }
 
 .form{
-  background-color: $light_gray;
+  background-color: #dddddd;
   padding: 15px 40px;
   height: 80px;
   display: flex;

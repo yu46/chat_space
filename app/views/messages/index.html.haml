@@ -4,12 +4,18 @@
       .side-bar__header__box
         %h3 SEO
         .side-bar__header__box__tool
-          =link_to do
+          =link_to new_group_path do
             %i.fa.fa-edit
           =link_to edit_user_path(current_user) do
             %i.fa.fa-cog
     .side-bar__groups
-      =render partial: "group"
+      .side-bar__group
+        - current_user.groups.each do |group|
+          = link_to '#' do
+            %P.side-bar__group__title
+              = group.name
+            %P.side-bar__group__message
+              -# = group.messages.(at_last)
   .chat
     .chat__heading
       .chat__heading__left
@@ -20,7 +26,6 @@
       .chat__heading__edit-btn
         =link_to 'Edit', "#"
     .chat__messages
-      
       =render partial: "chat"
     .form
       %form
