@@ -28,12 +28,10 @@
   .chat__messages
     =render partial: "/messages/chat"
   .form
-    %form
+    = form_for group, message do |f|
       .form__input-box
-        %input{type: "text", placeholder: "type a message", class: "form__input-box__text"}
-        %label{for: "upload-icon", class: "form__input-box__image"}
+        = f.text_field :content, placeholder: "type a message", class: "form__input-box__text"
+        =f.label class: "form__input-box__image"
           %i.fa.fa-image
-          %input{type: "file", class: "form__input-box__image--hidden", id: "upload-icon"}
-      %input{type: "submit",
-        value: "Send",
-        class: "form__btn",}
+          = f.file_field class: "form__input-box__image--hidden"
+      = f.submit "Send", class: "form__btn"
