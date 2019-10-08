@@ -105,9 +105,12 @@
         color: $light-gray;
       }
     }  
-    &__text{
-    font-size: 14px;
-    color: $black;
+    &__bottom{
+      
+      &__text{
+        font-size: 14px;
+      color: $black;
+      }
     }
   }
 

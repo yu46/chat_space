@@ -15,23 +15,4 @@
           %P.side-bar__group__title
             = group.name
           %P.side-bar__group__message
-            -# = group.messages.
-.chat
-  .chat__heading
-    .chat__heading__left
-      %P.chat__heading__left__title
-        Sample
-      %P.chat__heading__left__member
-        Members: seo neko
-    .chat__heading__edit-btn
-      =link_to 'Edit', "#"
-  .chat__messages
-    =render partial: "/messages/chat"
-  .form
-    = form_for group, message do |f|
-      .form__input-box
-        = f.text_field :content, placeholder: "type a message", class: "form__input-box__text"
-        =f.label class: "form__input-box__image"
-          %i.fa.fa-image
-          = f.file_field class: "form__input-box__image--hidden"
-      = f.submit "Send", class: "form__btn"
+            =group.show_last_message
