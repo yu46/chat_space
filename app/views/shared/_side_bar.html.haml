@@ -1,0 +1,39 @@
+.side-bar    
+  .side-bar__header
+    .side-bar__header__box
+      %h3
+        = current_user.name
+      .side-bar__header__box__tool
+        =link_to new_group_path do
+          %i.fa.fa-edit
+        =link_to edit_user_path(current_user) do
+          %i.fa.fa-cog
+  .side-bar__groups
+    - current_user.groups.each do |group|
+      .side-bar__group
+        = link_to group_messages_path(group) do
+          %P.side-bar__group__title
+            = group.name
+          %P.side-bar__group__message
+            -# = group.messages.
+.chat
+  .chat__heading
+    .chat__heading__left
+      %P.chat__heading__left__title
+        Sample
+      %P.chat__heading__left__member
+        Members: seo neko
+    .chat__heading__edit-btn
+      =link_to 'Edit', "#"
+  .chat__messages
+    =render partial: "/messages/chat"
+  .form
+    %form
+      .form__input-box
+        %input{type: "text", placeholder: "type a message", class: "form__input-box__text"}
+        %label{for: "upload-icon", class: "form__input-box__image"}
+          %i.fa.fa-image
+          %input{type: "file", class: "form__input-box__image--hidden", id: "upload-icon"}
+      %input{type: "submit",
+        value: "Send",
+        class: "form__btn",}
