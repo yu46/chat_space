@@ -1,6 +1,6 @@
 $(function () {
   function buildHTML(message) {
-    let image = message.image ? message.image : null
+    let image = message.image ? message.image : ""
     let html =
       `<div class="message">
           <div class="message__top">
@@ -36,7 +36,6 @@ $(function () {
         console.log('OK1');
         let html = buildHTML(data);
         $('.chat__messages').append(html);
-        $('.form__input-box__text').val('');
         $('form')[0].reset();
         let position = $('.chat__messages')[0].scrollHeight;
         $('.chat__messages').animate(
@@ -45,11 +44,8 @@ $(function () {
           'swing'
         );
       })
-      .fail(function (data1, data2, data3) {
+      .fail(function () {
         alert('error');
-        console.log(data1.status);
-        console.log(data2);
-        console.log(data3);
       })
       .always(function () {
         $('.form__btn').attr('disabled', false);
