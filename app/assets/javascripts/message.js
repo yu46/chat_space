@@ -56,11 +56,8 @@ $(function () {
         let html = buildHTML(data);
         $('.chat__messages').append(html);
         $('.form__input-box__text').val('');
-        console.log('OK2');
+        $('form')[0].reset();
         let position = $('.chat__messages')[0].scrollHeight;
-        let test = $('.chat')[0].scrollHeight;
-        console.log(position);
-        console.log(`テスト:${test}`);
         $('.chat__messages').animate(
           { scrollTop: position },
           'slow',

@@ -7,8 +7,11 @@
       .chat__heading__left
         %P.chat__heading__left__title
           = @group.name
-        %P.chat__heading__left__member
-          -# = "Members: #{@message.id}" fixit
+        %ul.chat__heading__left__member
+          Members:
+          -@group.users.each do |user|
+            %li
+              = "#{user.name}"
       .chat__heading__edit-btn
         =link_to 'Edit', edit_group_path(@group)
     .chat__messages
