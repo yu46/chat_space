@@ -1,8 +1,8 @@
 $(function () {
   function buildHTML(message) {
-    if (message.image) {
-      let html =
-        `<div class="message">
+    let image = message.image ? message.image : null
+    let html =
+      `<div class="message">
           <div class="message__top">
             <p class="message__top__user-name">
               ${message.user_name}
@@ -15,29 +15,10 @@ $(function () {
             <p class="message__bottom__text">
               ${message.content}
             </p>
-            <img src=${message.image} >
+            <img src=${image} >
           </div>
         </div>`
-      return html;
-    } else {
-      let html =
-        `<div class="message">
-          <div class="message__top">
-            <p class="message__top__user-name">
-              ${message.user_name}
-            </p>
-            <p class="message__top__date">
-                ${message.created_at}
-            </p>
-          </div>
-          <div class="message__bottom">
-              <p class="message__bottom__text">
-                ${message.content}
-              </p>
-          </div>
-        </div>`
-      return html;
-    };
+    return html;
   }
   $('#new_message').on("submit", function (e) {
     e.preventDefault();
@@ -76,3 +57,6 @@ $(function () {
     e.stopPropagation();
   })
 });
+
+
+
