@@ -16,11 +16,7 @@ $(function () {
   }
 
   $('#user-search-result').on("click", '.chat-group-user__btn--add', function () {
-
-
     let user_name = $(this).data('user-name');
-
-
     let url = location.href;
     $.ajax({
       type: 'GET',
