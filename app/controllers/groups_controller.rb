@@ -8,6 +8,11 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
+    @user = User.find_by(name: params[:name])
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
   end
 
   def create
@@ -20,11 +25,20 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @user = User.find_by(name: params[:name])
     
+    @users = @group.users.where.not(id: current_user.id)
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
   end
 
   def update
+    
     if @group.update(group_params)
+      
       redirect_to group_messages_path(@group), notice: 'グループを編集しました'
     else
       render :edit
