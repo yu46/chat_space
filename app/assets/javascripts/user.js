@@ -34,11 +34,7 @@ $(function () {
           notApplicableToHTML("一致するユーザーが見つかりません");
         }
       })
-      .fail(function (a, b, c) {
-        console.log('fail');
-        console.log(a.status);
-        console.log(b);
-        console.log(c);
+      .fail(function () {
         alert('ユーザー検索に失敗しました');
       })
   })
