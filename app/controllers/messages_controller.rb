@@ -4,6 +4,8 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.includes(:user)
+    @users = @group.users.where.not(id: current_user.id)
+    
   end
   def create
     @message = @group.messages.new(message_params)
