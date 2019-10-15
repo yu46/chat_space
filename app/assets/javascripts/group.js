@@ -29,15 +29,13 @@ $(function () {
         removeListHTML(user);
       })
       .fail(function () {
-        console.log('error');
+        alert('error');
       })
   });
 
   $('.js-add-user').on('click', '.chat-group-user__btn--remove', function () {
-    console.log('削除ボタン発火');
     let user_name = $(this).parent().find('p').text().replace(/\r?\n/g, "");
     let url = location.href;
-    console.log(user_name);
     $.ajax({
       type: 'GET',
       url: url,
@@ -48,7 +46,7 @@ $(function () {
         removeMember(user);
       })
       .fail(function () {
-        console.log('error');
+        alert('error');
       })
   });
 });
