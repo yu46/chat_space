@@ -1,14 +1,14 @@
 $(function () {
   function buildHTML(message) {
-    let image = message.image ? message.image : ""
+    let image = message.image ? message.image : "";
     let html =
-      `<div class="message">
+      `<div class="message" data-message-id="${message.id}">
           <div class="message__top">
             <p class="message__top__user-name">
               ${message.user_name}
             </p>
             <p class="message__top__date">
-                ${message.created_at}
+              ${message.created_at}
             </p>
           </div>
           <div class="message__bottom">
@@ -51,6 +51,35 @@ $(function () {
       })
     e.stopPropagation();
   })
+
+  let reloadMessages = function () {
+    let last_message_id = $('.message')[0] ? $('.message:last').data('message-id') : 0;
+    $.ajax({
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: { id: last_message_id }
+    })
+      .done(function (messages) {
+        console.log('success');
+        let insertHTML = '';
+        messages.forEach(function (message) {
+          insertHTML = buildHTML(message);
+          $('.chat__messages').append(insertHTML);
+          $('.chat__messages').animate(
+            { scrollTop: $('.chat__messages')[0].scrollHeight },
+            'slow',
+            'swing'
+          );
+        })
+      })
+      .fail(function () {
+        alert('更新に失敗しました。');
+      })
+  };
+  if (location.href.match(/\groups\/[0-9]+\/messages/)) {
+    setInterval(reloadMessages, 3000);
+  };
 });
 
 
