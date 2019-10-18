@@ -76,7 +76,7 @@ $(function () {
         alert('更新に失敗しました。');
       })
   };
-  if (location.href.match(/\groups\/[0-9]+\/messages/)) {
+  if (window.location.href.match(/\groups\/[0-9]+\/messages/)) {
     setInterval(reloadMessages, 3000);
   };
 });
